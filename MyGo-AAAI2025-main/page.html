@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyGo: Consistent and Controllable Multi-View Driving Video Generation with Camera Control</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <!-- Bootstrap -->
+    <link href="style/bootstrap-4.4.1.css" rel="stylesheet">
+  </head>
+  <body>
+    <section>
+      <div class="jumbotron text-center mt-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1>MyGo: Consistent and Controllable Multi-View Driving Video Generation with Camera Control</h1>
+			  <h4 style="color:#5a6268;"> 2024 </h4>
+				<hr>
+              <h5> Anonymous Authors
+              </h5>
+				<p>Affiliation</p>
+              <p>
+                Paper: <a href='assets/MyGo.pdf'>MyGo</a>
+                <br>
+                Code: Coming soon
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h2>Abstract</h2>
+
+            <p class="text-left">High-quality driving video generation is crucial for provid- ing training data for autonomous driving models. However, current generative models rarely focus on enhancing camera motion control under multi-view tasks, which is essential for driving video generation. 
+              Therefore, we propose MyGo, an end-to-end framework for video generation, introducing motion of onboard cameras as conditions to make progress in camera controllability and multi-view consistency. MyGo employs additional plug-in modules to inject camera parameters into the pre-trained video diffusion model, which retains the extensive knowledge of the pre-trained model as much as possible. 
+              Furthermore, we use epipolar constraints and neighbor view information during the generation process of each view to enhance spatial-temporal consistency. Experimental results show that MyGo has achieved state-of-the-art results in both general camera-controlled video generation and multi-view driving video generation tasks, which lays the foundation for more accurate environment simulation in autonomous driving. </p>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-12 text-center">
+                  <hr style="margin-top:0px">
+                  <h2>Method</h2>
+                
+                </div>
+              </div>
+              <div class="row" style="margin-top:5px">
+                <div class="col-12 text-center">
+                  <p class=""text-left">MyGo takes BEV map, 3D bounding boxes, neighbour view, keyframes and camera parameters as conditions, and uses a unified encoder to process the conditions. The encoded conditions are further integrated into U-Net by a condition cross-attention block. We design a ControlNet like structure to inject camera plu ̈cker coordinates into pre-trained U-Net blocks. Moreover, in neighbour view cross-attention block, we use epipolar geometry as a constraint to guide the calculation of cross-attention.</p>
+                  <p class=""text-left"></p>
+                  <img class="img-fluid" src="assets/overview.pdf" alt="">
+                  
+                </div>
+              </div>
+            </div>
+
+ 
+          <div class="container">
+            <div class="row">
+              <div class="col-12 text-center">        
+                <hr style="margin-top:0px">
+                <h2>Results</h2>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 text-center">        
+                <h3 style="margin-top: 30px;">RealEstate10K</h3>
+              </div>
+            </div>
+
+
+
+
+
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <video width="512" controls>
+            <source src="assets/1-1.mp4" type="video/mp4">
+            Your browser does not support the video tag. Chrome browser is recommended.
+        </video>
+                <video width="256" controls>
+            <source src="assets/1-1-1.mp4" type="video/mp4">
+            Your browser does not support the video tag. Chrome browser is recommended.
+        </video>
+    </div>
+		                <div class="row">
+                <div class="col-12 text-center">        
+                  <h3 style="margin-top: 30px;"> </h3>
+                </div>
+              </div>
+
+
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <video width="512" controls>
+            <source src="assets/1-2.mp4" type="video/mp4">
+            Your browser does not support the video tag. Chrome browser is recommended.
+        </video>
+                <video width="256" controls>
+            <source src="assets/1-2-1.mp4" type="video/mp4">
+            Your browser does not support the video tag. Chrome browser is recommended.
+        </video>
+    </div>
+		                <div class="row">
+                <div class="col-12 text-center">        
+                  <h3 style="margin-top: 30px;"> </h3>
+                </div>
+              </div>
+
+
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <video width="512" controls>
+            <source src="assets/1-3.mp4" type="video/mp4">
+            Your browser does not support the video tag. Chrome browser is recommended.
+        </video>
+                <video width="256" controls>
+            <source src="assets/1-3-1.mp4" type="video/mp4">
+            Your browser does not support the video tag. Chrome browser is recommended.
+        </video>
+    </div>
+		                <div class="row">
+                <div class="col-12 text-center">        
+                  <h3 style="margin-top: 30px;"> </h3>
+                </div>
+              </div>
+
+
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <video width="512" controls>
+            <source src="assets/1-4.mp4" type="video/mp4">
+            Your browser does not support the video tag. Chrome browser is recommended.
+        </video>
+                <video width="256" controls>
+            <source src="assets/1-4-1.mp4" type="video/mp4">
+            Your browser does not support the video tag. Chrome browser is recommended.
+        </video>
+    </div>
+
+            <div class="row">
+              <div class="col-12 text-center">        
+                <h3 style="margin-top: 30px;">Driving video generation with multi-view consistency on nuScenes</h3>
+              </div>
+            </div>
+	<div class="row">
+              <div class="col-12 text-center">        
+                <h4 style="margin-top: 30px;">MyGo with epipolar-geometry based crossview module</h3>
+              </div>
+            </div>
+  
+  
+                <video width="1024" controls>
+                  <source src="assets/2_2.mp4" type="video/mp4">
+                  <!-- 浏览器不支持时显示的文本 -->
+                  Your browser does not support the video tag. Chrome browser is recommended.
+                </video><video width="1024" controls>
+                  <source src="assets/2_1.mp4" type="video/mp4">
+                  <!-- 浏览器不支持时显示的文本 -->
+                  Your browser does not support the video tag. Chrome browser is recommended.
+                </video>
+		  
+	<div class="row">
+              <div class="col-12 text-center">        
+                <h4 style="margin-top: 30px;">MyGo without crossview module</h3>
+              </div>
+            </div>
+  
+  
+                <video width="1024" controls>
+                  <source src="assets/2-1-2.mp4" type="video/mp4">
+                  <!-- 浏览器不支持时显示的文本 -->
+                  Your browser does not support the video tag. Chrome browser is recommended.
+                </video><video width="1024" controls>
+                  <source src="assets/2-1-1.mp4" type="video/mp4">
+                  <!-- 浏览器不支持时显示的文本 -->
+                  Your browser does not support the video tag. Chrome browser is recommended.
+                </video>
+
+
+
+            <div class="row">
+              <div class="col-12 text-center">        
+                <h3 style="margin-top: 30px;">Motion Editable Generation on nuScenes</h3>
+              </div>
+            </div>
+  
+  
+                <video width="1024" controls>
+                  <source src="assets/3-1.mp4" type="video/mp4">
+                  <!-- 浏览器不支持时显示的文本 -->
+                  Your browser does not support the video tag. Chrome browser is recommended.
+                </video><video width="1024" controls>
+                  <source src="assets/3-2.mp4" type="video/mp4">
+                  <!-- 浏览器不支持时显示的文本 -->
+                  Your browser does not support the video tag. Chrome browser is recommended.
+                </video>
+                
+              </div>
+            </div>
+				  <br>
+          </div>
+        </div>
+      </div>
+            <div class="row">
+              <div class="col-12 text-center">        
+                <h3 style="margin-top: 30px;">Quantative Results</h3>
+		      
+              </div>
+		    <div class="col-12 text-center">
+		<img class="img-fluid" src="assets/table.png" alt="" width = 1024 >
+            </div>
+	    </div>
+    </section>
+	 <br>
+
+      
+
+     
+
+</body></html>
