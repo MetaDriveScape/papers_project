@@ -35,6 +35,7 @@
                 <br>
                 Code: Coming soon
               </p>
+          <p class="text-left">Recent advancements in generative models offer promising solutions to synthesize realistic driving videos, aiding in training autonomous driving perception model. However, existing approaches often fall short in multi-view video generation due to challenges in integrating 3D information while maintaining spatial-temporal consistency, and learning by a unified model effectively. In this paper, We propose an end-to-end framework named DriveScape for multi-view 3D condition-guided video generation. DriveScape not only streamlines the process by integrating camera information for comprehensive spatial-temporal coverage but also introduces a Bi-Directional modulated transformer module to align various 3D road structural information effectively. Consequently, our approach facilitates precise control over video generation, greatly enhancing realism and offering a robust solution for creating multi-view driving videos. Our framework has achieved state-of-the-art results on the nuScenes dataset, demonstrating impressive generative quality metrics with an FID score of 8.34 and an FVD score of 76.39, as well as superior performance across various perception tasks. This lays the foundation for more accurate environment simulation in autonomous driving. We will make our code and pre-trained model publicly.</p>
             </div>
           </div>
         </div>
@@ -47,7 +48,7 @@
             <h2 style="text-align: center;">High Resolution Generating with Sparse Layout</h2>
             <hr style="margin-top:0px">
 
-              <h5 style="text-align: center;">Generate <span class="red-text"> 10 Hz multiview </span> high-resolution<span class="red-text">(1024*576) </spans> videos(<span class="red-text"> 30 frames</span>) with sparse conditions<span class="red-text">(2Hz)</span>.</h5>
+              <h5 style="text-align: center;">Generate <span class="red-text"> 10 Hz multiview </span> high-resolution<span class="red-text">(1024*576) </span> videos(<span class="red-text"> 30 frames</span>) with sparse conditions<span class="red-text">(2Hz)</span>.</h5>
               
             <p style="text-align: center;">First row: Generated panoramic video. Second row: Sparse layout condition, black represents <span class="red-text">no layout condition </span> at that moment.</p>
 
@@ -56,37 +57,29 @@
 		<div style="text-align: center;">
                   <video width="1024" height="192" autoplay loop muted playsinline>
                   <source src="assets_arxiv/10fps_website/processed_00008_prompt_00.mp4" type="video/mp4">
-                  Your browser does not support the video tag. Chrome browser is recommended.
-		  </video style="text-align: center;">
+		  </video>
                   <video width="1024" height="192" autoplay loop muted playsinline>
                   <source src="assets_arxiv/10fps_website/processed_00005_prompt_00 (1).mp4" type="video/mp4">
-                  Your browser does not support the video tag. Chrome browser is recommended.
                 </video>
 		<video width="1024" height="192" autoplay loop muted playsinline>
                   <source src="assets_arxiv/10fps_website/processed_00007_prompt_00.mp4" type="video/mp4">
-                  Your browser does not support the video tag. Chrome browser is recommended.
                 </video>
                 
                 <video width="1024" height="192" autoplay loop muted playsinline>
                   <source src="assets_arxiv/10fps_website/processed_00005_prompt_00.mp4" type="video/mp4">
-                  Your browser does not support the video tag. Chrome browser is recommended.
                 </video>
 		
                 <video width="1024" height="192" autoplay loop muted playsinline>
                   <source src="assets_arxiv/10fps_website/processed_00002_prompt_00.mp4" type="video/mp4">
-                  Your browser does not support the video tag. Chrome browser is recommended.
                 </video>
 		<video width="1024" height="192" autoplay loop muted playsinline>
                   <source src="assets_arxiv/10fps_website/processed_00004_prompt_00.mp4" type="video/mp4">
-                  Your browser does not support the video tag. Chrome browser is recommended.
                 </video>
                 <video width="1024" height="192" autoplay loop muted playsinline>
                   <source src="assets_arxiv/10fps_website/processed_00010_prompt_00.mp4" type="video/mp4">
-                  Your browser does not support the video tag. Chrome browser is recommended.
                 </video>
                 <video width="1024" height="192" autoplay loop muted playsinline>
                   <source src="assets_arxiv/10fps_website/processed_00007_prompt_00_2.mp4" type="video/mp4">
-                  Your browser does not support the video tag. Chrome browser is recommended.
                 </video>
 
 <!--              </video><video width="1344" height="256" autoplay loop muted playsinline>-->
@@ -109,7 +102,6 @@
           <div class="col-12 text-left">
             <h2 style="text-align: center;">Method</h2>
 			    <hr style="margin-top:0px">
-          <p class="text-left">Recent advancements in generative models offer promising solutions to synthesize realistic driving videos, aiding in training autonomous driving perception model. However, existing approaches often fall short in multi-view video generation due to challenges in integrating 3D information while maintaining spatial-temporal consistency, and learning by a unified model effectively. In this paper, We propose an end-to-end framework named DriveScape for multi-view 3D condition-guided video generation. DriveScape not only streamlines the process by integrating camera information for comprehensive spatial-temporal coverage but also introduces a Bi-Directional modulated transformer module to align various 3D road structural information effectively. Consequently, our approach facilitates precise control over video generation, greatly enhancing realism and offering a robust solution for creating multi-view driving videos. Our framework has achieved state-of-the-art results on the nuScenes dataset, demonstrating impressive generative quality metrics with an FID score of 8.34 and an FVD score of 87.78, as well as superior performance across various perception tasks. This lays the foundation for more accurate environment simulation in autonomous driving. We will make our code and pre-trained model publicly.</p>
           </div>
         </div>
         <div class="row" style="margin-top:5px">
@@ -121,26 +113,99 @@
     </section>
     <br>
     <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-left">
-            <h2 style="text-align: center;">Generating Resolution Comparion</h2>
-            <hr style="margin-top:0px">
-            <h5 style="text-align: center;"> DriveScape can generate high resolution videos both in <span class="red-text">time(10Hz)</span> and <span class="red-text"> space(1024*576) </span>!   </h5>
-			   
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-left">
+        <h2 style="text-align: center;">Resolution and Feature Comparison</h2>
+        <hr style="margin-top:0px">
+        <div class="d-flex" style="justify-content: space-between;">
+
+          <!-- 左侧的视频，标题为 Resolution Comparison -->
+          <div style="flex-basis: 65%; flex-grow: 1; margin-right: 20px;">
+            <h4 style="text-align: center;">Resolution Comparison</h4>
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+              <source src="assets_arxiv/front_res_comp.mp4" type="video/mp4">
+              Your browser does not support the video tag. Chrome browser is recommended.
+            </video>
           </div>
-        </div>
-        <div class="row" style="margin-top:5px">
-          <div class="col-12 text-left">
-<!--            <img class="img-fluid" src="assets_arxiv/resolution_comp.png" alt="">-->
-            <video width="1140" height="500" autoplay loop muted playsinline>
-                      <source src="assets_arxiv/front_res_comp.mp4" type="video/mp4">
-                      Your browser does not support the video tag. Chrome browser is recommended.
-                </video>
+
+          <!-- 右侧的表格，标题为 Feature Comparison -->
+          <div style="flex-basis: 35%; flex-grow: 1;">
+            <h4 style="text-align: center;">Feature Comparison</h4>
+            <table border="1" cellpadding="8" cellspacing="0" style="width: 100%; text-align: center; font-size: 12px; line-height: 1;">
+              <thead>
+                <tr>
+                  <th><strong>Model</strong></th>
+                  <th><strong>Spatial Res.</strong></th>
+                  <th><strong>FPS</strong></th>
+                  <th><strong>Sparse Condition</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Drive-WM</td>
+                  <td>192 × 384</td>
+                  <td>2</td>
+                  <td>×</td>
+                </tr>
+                <tr>
+                  <td>WoVoGen</td>
+                  <td>256 × 448</td>
+                  <td>2</td>
+                  <td>×</td>
+                </tr>
+                <tr>
+                  <td>Delphi</td>
+                  <td>512 × 512</td>
+                  <td>2</td>
+                  <td>×</td>
+                </tr>
+                <tr>
+                  <td>GenAD</td>
+                  <td>256 × 448</td>
+                  <td>2</td>
+                  <td>×</td>
+                </tr>
+                <tr>
+                  <td>MagicDrive</td>
+                  <td>272 × 736</td>
+                  <td>-</td>
+                  <td>×</td>
+                </tr>
+                <tr>
+                  <td>DriveDreamer 1&amp;2</td>
+                  <td>448 × 256</td>
+                  <td>2</td>
+                  <td>×</td>
+                </tr>
+                <tr>
+                  <td>DriveDiffusion</td>
+                  <td>512 × 512</td>
+                  <td>2</td>
+                  <td>×</td>
+                </tr>
+                <tr>
+                  <td>Panacea</td>
+                  <td>256 × 512</td>
+                  <td>2</td>
+                  <td>×</td>
+                </tr>
+                <tr>
+                  <td><strong>Ours (DriveScape)</strong></td>
+                  <td><strong style="color: red;">576 × 1024</strong></td>
+                  <td><strong style="color: red;">2~10</strong></td>
+                  <td>&#10003;</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
     <br>
     <section>
     <br>
@@ -160,14 +225,12 @@
              
             <video width="1152" height="144" autoplay loop muted playsinline>
                       <source src="assets_arxiv/merge_00003 (1).mp4" type="video/mp4">
-                      Your browser does not support the video tag. Chrome browser is recommended.
                 </video>
 
 	 <p style="text-align: center;"> We simulate a rear-end collision scenario with the leading vehicle.
    </p>
                 <video width="1152" height="144" autoplay loop muted playsinline>
                   <source src="assets_arxiv/merge_00008 (3).mp4" type="video/mp4">
-                  Your browser does not support the video tag. Chrome browser is recommended.
             </video>
 
 		<p style="text-align: center;">  left：edited videos; middle: structured input; right: original videos;
