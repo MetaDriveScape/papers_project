@@ -44,7 +44,7 @@
           <div class="col-12 text-center">
             <h2>Abstract</h2>
 
-            <p class="text-left">High-quality driving video generation is crucial for provid- ing training data for autonomous driving models. However, current generative models rarely focus on enhancing camera motion control under multi-view tasks, which is essential for driving video generation. 
+            <p class="text-left">High-quality driving video generation is crucial for providing training data for autonomous driving models. However, current generative models rarely focus on enhancing camera motion control under multi-view tasks, which is essential for driving video generation. 
               Therefore, we propose MyGo, an end-to-end framework for video generation, introducing motion of onboard cameras as conditions to make progress in camera controllability and multi-view consistency. MyGo employs additional plug-in modules to inject camera parameters into the pre-trained video diffusion model, which retains the extensive knowledge of the pre-trained model as much as possible. 
               Furthermore, we use epipolar constraints and neighbor view information during the generation process of each view to enhance spatial-temporal consistency. Experimental results show that MyGo has achieved state-of-the-art results in both general camera-controlled video generation and multi-view driving video generation tasks, which lays the foundation for more accurate environment simulation in autonomous driving. </p>
 
@@ -72,6 +72,8 @@
               <div class="col-12 text-center">        
                 <hr style="margin-top:0px">
                 <h2>Results</h2>
+		<p class=""text-left"> We conducted experiments on the RealEstate10K and nuScenes datasets. On the RealEstate10K dataset, we achieved precise control of the camera position and high-quality video generation through the camera control module. On the nuScenes dataset, we further enhanced the spatial consistency of the generated results using the neighbour view control module.</p>
+                  <p class=""text-left"></p>
               </div>
             </div>
 
@@ -138,11 +140,14 @@
             <div class="row">
               <div class="col-12 text-center">        
                 <h3 style="margin-top: 30px;">Driving video generation with multi-view consistency on nuScenes</h3>
+                <p >After removing the neighbour view module, the consistency cannot be maintained, as seen in the last few frames of the left-front view in the first example and the truck in the right-front view in the second video.</p>
+    
               </div>
             </div>
 	<div class="row">
               <div class="col-12 text-center">        
-                <h4 style="margin-top: 30px;">MyGo with epipolar-geometry based neighbour view conditioning module</h3>
+                <h4 style="margin-top: 30px;">MyGo with epipolar-geometry based neighbour view conditioning module</h4>
+                
               </div>
             </div>
   
@@ -159,8 +164,8 @@
 		  
 	<div class="row">
               <div class="col-12 text-center">        
-                <h4 style="margin-top: 30px;">MyGo without neighbour view conditioning module</h3>
-              </div>
+                <h4 style="margin-top: 30px;">MyGo without neighbour view conditioning module</h4>
+	          </div>
             </div>
   
   
@@ -213,6 +218,23 @@
 
       
 
-     
+   <footer class="text-center">
+	  <div class="container">
+        <div class="row ">
+          <div class="col-12">
+			<h2>Citation</h2>
+			  <hr style="margin-top:0px">
+			  <div class="bibtexsection">
+            @inproceedings{drivescape2024,
+              title={MyGo: Consistent and Controllable Multi-View Driving Video Generation with Camera Control},
+              author={Yining Yao, Xi Guo, Chenjing Ding, Wei Wu},
+              year={2024}
+            }
+			  </div>
+			  <hr>
+		</div>
+        </div>
+      </div>
+    </footer>
 
 </body></html>
