@@ -786,7 +786,7 @@
       <div class="rows is-centered ">
         <div class="columns is-centered has-text-centered">
           <div class="column" style="font-size: 120%">
-            a. Temporal Consistency.  In Panacea, the direction of the white car's front head(in Front Left and Back Left view) change over time. In contrast, our model preserves the white car's attributes, demonstrating superior temporal consistency.
+            a. Temporal Consistency.  In Panacea, the direction of the white car's front head(in FrontLeft and BackLeft view) change over time. In DrivePhysica, our model preserves the white car's attributes, demonstrating superior temporal consistency.
           </div>
         </div>
       </div>
@@ -817,8 +817,8 @@
       <div class="rows is-centered ">
         <div class="columns is-centered has-text-centered">
           <div class="column" style="font-size: 120%">
-            b. Occlusion Hierachy.  The stationary box (in Front Left view in the parking space) is positioned farther from the ego vehicle, while the moving box is closer.  
-            In Panacea, the generated video incorrectly places the farther stationary box in front, where it remains static and obstructs the view of the closer moving box, violating the expected occlusion hierarchy.In contrast, our model correctly renders the closer moving box in front, with the farther stationary box appropriately occluded.
+            b. Occlusion Hierachy.  The stationary box (in FrontLeft view in the parking space) is positioned farther from the ego vehicle, while the moving box is closer.  
+            In Panacea, it incorrectly places the farther stationary box in front, obstructing the closer moving car, therefore violating the expected occlusion hierarchy. In DrivePhysica, we correctly render the closer moving box in front, with the farther stationary box appropriately occluded.
             
           </div>
         </div>
@@ -848,7 +848,7 @@
         <div class="columns is-centered has-text-centered">
           <div class="column" style="font-size: 120%">
             c. Relative Motion Understanding. As the ego vehicle moves forward, the background and foreground cars should appear to move backward relative to it. In Panacea, the black car(in FrontRight and BackRight view) does not move backward as expected relative to the ego vehicle, failing to learn correct relative motion laws.  
-            In contrast, our model accurately captures the relative motion of each instance.
+            In DrivePhysica, we accurately capture the relative motion of each instance.
 
 
           </div>
@@ -881,8 +881,8 @@
       <div class="rows is-centered ">
         <div class="columns is-centered has-text-centered">
           <div class="column" style="font-size: 120%">
-            d. Spatial Consistancy.  In Panacea, the white truck exhibits different shapes in different views.
-            In contrast, our model maintains consistent spatial representation across views.
+            d. Spatial Consistency.  In Panacea, the white truck (in FrontRight and BackRight view) exhibits different shapes in different views.
+            In DrivePhysica, our model maintains consistent spatial representation across views.
           </div>
         </div>
       </div>
@@ -967,7 +967,7 @@
       <div class="rows is-centered ">
         <div class="columns is-centered has-text-centered">
           <div class="column" style="font-size: 120%">
-            d. Spatial Consistancy.
+            d. Spatial Consistency.
 
 
           </div>
@@ -1170,7 +1170,7 @@
       <div class="rows is-centered ">
         <div class="columns is-centered has-text-centered">
           <div class="column" style="font-size: 120%">
-            a. The vehicle ahead brakes, the vehicle decelerates, and then stops.
+            a. The vehicle ahead brakes, prompting the ego vehicle to decelerate and stop.
           </div>
         </div>
       </div>
