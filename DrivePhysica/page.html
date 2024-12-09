@@ -583,8 +583,10 @@
         <div class="rows is-centered ">
           <div class="columns is-centered has-text-centered">
             <div class="column column-no-padding" style="font-size: 120%">
-              DrivePhysica can generate diverse weather scenarios from the same control condition, which means it is possible to simulate extreme weather conditions for training perception models. <br>
+              DrivePhysica can generate diverse weather scenarios from the same control conditions. <br>
+              It means it is possible to simulate extreme weather conditions for training perception models. <br>
               We append descriptors like "sunny," "rainy," or "night" to text prompts for video editing. <br>
+              The videos below show the "control condition", followed by "sunny", "rainy", and "night" scenarios. <br>
               Videos in this section are: 7 seconds, 256x448 resolution.
             </div>
           </div>
@@ -605,6 +607,13 @@
         <video loop="" muted="" playsinline="" autoplay="">
           <source src="./data/Text_editing/ex3/layout.mp4" type="video/mp4">
         </video>
+        <div class="rows is-centered ">
+          <div class="columns is-centered has-text-centered">
+            <div class="column" style="font-size: 120%">
+              Control Condition
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   
@@ -617,6 +626,13 @@
         </video>
         <div class="caption">
           <div>Sunny, Busy street, parked cars, parking lot, ped sitting at bus stop, motorcycle driving.</div>
+        </div>
+        <div class="rows is-centered ">
+          <div class="columns is-centered has-text-centered">
+            <div class="column" style="font-size: 120%">
+              "Sunny": clear skies with sunlight shining on the scene, reflecting bright and vivid environmental details. 
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -631,6 +647,14 @@
         <div class="caption">
           <div>Rainy, Busy street, parked cars, parking lot, ped sitting at bus stop, motorcycle driving.</div>
         </div>
+        <div class="rows is-centered ">
+          <div class="columns is-centered has-text-centered">
+            <div class="column" style="font-size: 120%">
+              "Rainy": wet road surfaces and blurred camera views caused by raindrops, adding realistic weather dynamics.
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   
@@ -643,6 +667,13 @@
         </video>
         <div class="caption">
           <div>Night, Busy street, parked cars, parking lot, ped sitting at bus stop, motorcycle driving.</div>
+        </div>
+        <div class="rows is-centered ">
+          <div class="columns is-centered has-text-centered">
+            <div class="column" style="font-size: 120%">
+              "Night": dimly lit scenes with streetlights and reduced visibility, accurately simulating nighttime driving conditions.
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -673,7 +704,12 @@
         <div class="rows is-centered ">
           <div class="columns is-centered has-text-centered">
             <div class="column column-no-padding" style="font-size: 120%">
-              DrivePhysica responds precisely to control conditions like box projection, map projection, and instance velocity. <br>
+              DrivePhysica responds precisely to control conditions like box projection, map projection, and instance flow. <br>
+              Small and densely packed objects are precisely rendered at their correct locations, following 3D bounding box coordinates. <br>
+              Objects track their previous attributes as guided by the instance flow, ensuring temporal consistency across frames. <br>
+              Drivable areas, sidewalks, and zebra crossings are faithfully generated following the road map projections. <br>
+              Objects in the scene are accurately placed and sized to align with their projected bounding boxes. <br>
+              We overlay the 3D bounding box projections onto the generated videos. <br>
               Videos in this section are: 15 seconds, 256x448 resolution.
             </div>
           </div>
@@ -981,7 +1017,10 @@
         <div class="rows is-centered ">
           <div class="columns is-centered has-text-centered">
             <div class="column column-no-padding" style="font-size: 120%">
-              Videos (with diverse background information as shown below) in this section are generated with same conditions but different noises, 15 seconds, 256*448 resolution.
+              DrivePhysica can generate diverse videos using varying stochastic noise inputs and the same control conditions. <br>
+              The videos below show the "control condition" and two sampled videos with different stochastic noise inputs in each line. <br>
+              Both sampled videos in the second and third line adhere to the constraints defined in the first line. <br>
+              Videos in this section are: 15 seconds, 256*448 resolution.
             </div>
           </div>
         </div>
@@ -1114,13 +1153,13 @@
       <div class="container">
         <div class="columns is-centered has-text-centered">
           <div class="column column-no-bottom-padding">
-            <h2 class="title is-3">4. Scenario Simulation in Autonomous Driving </h2>
+            <h2 class="title is-3">4. Scenario Simulation Using Carla-Generated Layouts </h2>
           </div>
         </div>
         <div class="rows is-centered ">
           <div class="columns is-centered has-text-centered">
             <div class="column column-no-padding" style="font-size: 120%">
-              In this section, the text prompt and layout are generated from Carla simulator.
+              DrivePhysica can generate driving videos based on layout conditions provided by the Carla Simulator.
             </div>
           </div>
         </div>
@@ -1137,13 +1176,15 @@
             <h2 class="title is-4">4.1 Corner Case in Autonomous Driving</h2>
           </div>
         </div>
-        <!-- <div class="rows is-centered ">
+        <div class="rows is-centered ">
           <div class="columns is-centered has-text-centered">
             <div class="column column-no-padding" style="font-size: 120%">
-              Videos in this section are: 5 seconds, 10 Hz, 576×1024 resolution.
+              DrivePhysica can generate rare but critical driving scenarios based on the Carla-Generated layout conditions. <br>
+              The use of Carla-generated layouts addresses a critical limitation in real-world driving video datasets: <br>
+              The lack of diversity in scene types, especially for rare or challenging corner cases. <br>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </section>
@@ -1196,6 +1237,15 @@
           </div>
         </div>
         
+        <div class="rows is-centered ">
+          <div class="columns is-centered has-text-centered">
+            <div class="column column-no-padding" style="font-size: 120%">
+              DrivePhysica can simulate long-duration driving scenarios based on the Carla-Generated layout conditions. <br>
+              We generates new plausible content on the fly and maintains a consistent world for up to a minute. <br>
+              This duration significantly exceeds that of videos in the NuScenes dataset.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
