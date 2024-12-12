@@ -8,6 +8,10 @@ body {
     font-family: "Palatino";
 }
 
+.red-bold-text {
+  color: red;
+  font-weight: bold;
+}
 
 .footer .icon-link {
     font-size: 25px;
