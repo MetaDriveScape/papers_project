@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DriveScape: Towards High-Resolution Controllable Multi-View Driving Video Generation</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <!-- Bootstrap -->
+    <link href="style/bootstrap-4.4.1.css" rel="stylesheet">
+  </head>
+  <body>
+    <section>
+      <div class="jumbotron text-center mt-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 style="text-align: center;">DriveScape: High-Resolution Driving Video Generation by Multi-View Feature Fusion</h1>
+				<hr>
+          <p class="text-left">
+Recent advancements in generative models offer promising solutions for synthesizing realistic driving videos, aiding in training autonomous driving perception models. However, existing methods often struggle with high-resolution multi-view generation, mainly due to the significant memory and computational overhead caused by simultaneously inputting multi-view videos into denoising diffusion models.
+In this paper, we propose a driving video generation framework based on multi-view feature fusion named DriveScape for multi-view 3D condition-guided video generation. We introduce a Bi-Directional Modulated Transformer (BiMoT) module to encode, fuse and inject multi-view features along with various 3D road structures and objects, which enables high-resolution multi-view generation. Consequently, our approach allows precise control over video generation, greatly enhancing realism and providing a robust solution for creating high-quality, multi-view driving videos.
+              Our framework achieves state-of-the-art results on the nuScenes dataset, demonstrating impressive generative quality metrics with an FID score of <strong>8.34</strong> and an FVD score of <strong>76.39</strong>, as well as superior performance across various perception tasks. This lays the foundation for more accurate environment simulation in autonomous driving. We plan to make our code and pre-trained model publicly available.          </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-left">
+            <h2 style="text-align: center;">High Resolution Generating with Sparse Layout</h2>
+            <hr style="margin-top:0px">
+
+              <h5 style="text-align: center;">Generate <span class="red-text"> 10 Hz multiview </span> high-resolution<span class="red-text">(1024*576) </span> videos(<span class="red-text"> 30 frames</span>) with sparse conditions<span class="red-text">(2Hz)</span>.</h5>
+              
+            <p style="text-align: center;">First row: Generated panoramic video. Second row: Sparse layout condition, black represents <span class="red-text">no layout condition </span> at that moment.</p>
+
+            <div class="row" style="margin-top:5px">
+              <div class="col-12 text-left">
+		<div style="text-align: center;">
+                  <video width="1024" height="192" autoplay loop muted playsinline>
+                  <source src="assets_arxiv/10fps_website/processed_00008_prompt_00.mp4" type="video/mp4">
+		  </video>
+                  <video width="1024" height="192" autoplay loop muted playsinline>
+                  <source src="assets_arxiv/10fps_website/processed_00005_prompt_00 (1).mp4" type="video/mp4">
+                </video>
+		<video width="1024" height="192" autoplay loop muted playsinline>
+                  <source src="assets_arxiv/10fps_website/processed_00007_prompt_00.mp4" type="video/mp4">
+                </video>
+                
+                <video width="1024" height="192" autoplay loop muted playsinline>
+                  <source src="assets_arxiv/10fps_website/processed_00005_prompt_00.mp4" type="video/mp4">
+                </video>
+		
+                <video width="1024" height="192" autoplay loop muted playsinline>
+                  <source src="assets_arxiv/10fps_website/processed_00002_prompt_00.mp4" type="video/mp4">
+                </video>
+		<video width="1024" height="192" autoplay loop muted playsinline>
+                  <source src="assets_arxiv/10fps_website/processed_00004_prompt_00.mp4" type="video/mp4">
+                </video>
+                <video width="1024" height="192" autoplay loop muted playsinline>
+                  <source src="assets_arxiv/10fps_website/processed_00027_prompt_00.mp4" type="video/mp4">
+                </video>
+                <video width="1024" height="192" autoplay loop muted playsinline>
+                  <source src="assets_arxiv/10fps_website/processed_00007_prompt_00_2.mp4" type="video/mp4">
+                </video>
+
+<!--              </video><video width="1344" height="256" autoplay loop muted playsinline>-->
+<!--                <source src="assets/fps1000010_prompt_00.mp4" type="video/mp4">-->
+<!--                Your browser does not support the video tag. Chrome browser is recommended.-->
+<!--              </video>-->
+		</div>
+              </div>
+            </div>
+				  <br>
+         
+          </div>
+        </div>
+      </div>
+    </section>
+	 <br>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-left">
+            <h2 style="text-align: center;">Method</h2>
+			    <hr style="margin-top:0px">
+          </div>
+        </div>
+        <div class="row" style="margin-top:5px">
+          <div class="col-12 text-left">
+            <img class="img-fluid" src="assets_arxiv/pipeline3.png" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+    <br>
+    <section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-left">
+        <h2 style="text-align: center;">Resolution and Feature Comparison</h2>
+        <hr style="margin-top:0px">
+        <div class="d-flex" style="justify-content: space-between;">
+
+          <!-- 左侧的视频，标题为 Resolution Comparison -->
+          <div style="flex-basis: 65%; flex-grow: 1; margin-right: 20px;">
+            <h4 style="text-align: center;">Resolution Comparison</h4>
+            <video width="100%" height="auto" autoplay loop muted playsinline>
+              <source src="assets_arxiv/front_res_comp.mp4" type="video/mp4">
+              Your browser does not support the video tag. Chrome browser is recommended.
+            </video>
+          </div>
+
+          <!-- 右侧的表格，标题为 Feature Comparison -->
+          <div style="flex-basis: 35%; flex-grow: 1;">
+            <h4 style="text-align: center;">Feature Comparison</h4>
+            <table border="1" cellpadding="8" cellspacing="0" style="width: 100%; text-align: center; font-size: 12px; line-height: 1;">
+              <thead>
+                <tr>
+                  <th><strong>Model</strong></th>
+                  <th><strong>Spatial Res.</strong></th>
+                  <th><strong>FPS</strong></th>
+                  <th><strong>Sparse Condition</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Drive-WM</td>
+                  <td>192 × 384</td>
+                  <td>2</td>
+                  <td>×</td>
+                </tr>
+                <tr>
+                  <td>WoVoGen</td>
+                  <td>256 × 448</td>
+                  <td>2</td>
+                  <td>×</td>
+                </tr>
+                <tr>
+                  <td>Delphi</td>
+                  <td>512 × 512</td>
+                  <td>2</td>
+                  <td>×</td>
+                </tr>
+                <tr>
+                  <td>GenAD</td>
+                  <td>256 × 448</td>
+                  <td>2</td>
+                  <td>×</td>
+                </tr>
+                <tr>
+                  <td>MagicDrive</td>
+                  <td>272 × 736</td>
+                  <td>-</td>
+                  <td>×</td>
+                </tr>
+                <tr>
+                  <td>DriveDreamer 1&amp;2</td>
+                  <td>448 × 256</td>
+                  <td>2</td>
+                  <td>×</td>
+                </tr>
+                <tr>
+                  <td>DriveDiffusion</td>
+                  <td>512 × 512</td>
+                  <td>2</td>
+                  <td>×</td>
+                </tr>
+                <tr>
+                  <td>Panacea</td>
+                  <td>256 × 512</td>
+                  <td>2</td>
+                  <td>×</td>
+                </tr>
+                <tr>
+                  <td><strong>Ours (DriveScape)</strong></td>
+                  <td><strong style="color: red;">576 × 1024</strong></td>
+                  <td><strong style="color: red;">2~10</strong></td>
+                  <td>&#10003;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <br>
+    <section>
+    <br>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-left">
+            <h2 style="text-align: center;">Layout edit</h2>
+            
+			    <hr style="margin-top:0px">
+
+          <h5 style="text-align: center;"> The car crash videos we simulated on a private dataset by editting the layouts.
+          </h5>
+      
+            <p style="text-align: center;"> We simulate a scenario where the following vehicle rear-ends your car.
+            </p>
+             
+            <video width="1152" height="144" autoplay loop muted playsinline>
+                      <source src="assets_arxiv/merge_00003 (1).mp4" type="video/mp4">
+                </video>
+
+	 <p style="text-align: center;"> We simulate a rear-end collision scenario with the leading vehicle.
+   </p>
+                <video width="1152" height="144" autoplay loop muted playsinline>
+                  <source src="assets_arxiv/merge_00008 (3).mp4" type="video/mp4">
+            </video>
+
+		<p style="text-align: center;">  left：edited videos; middle: structured input; right: original videos;
+			 </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-left">
+            <h2 style="text-align: center;">Control by Text</h2>
+			    <hr style="margin-top:0px">
+            <h5 style="text-align: center;"> We can generate diverse videos by controlling them through text, even when the structured input is identical.
+            </h5>
+            <p style="text-align: center;" >The video shows a <span class="red-text">dark street at night</span> with a car driving down the road. The <span class="red-text">street is illuminated by streetlights</span>. <span class="red-text">The blue vehicle</span> is passing a junction in the image. The ego vehicle is moving, as it is seen driving down the street in the video.
+            </p>
+            <video width="1152" height="144" autoplay loop muted playsinline>
+                      <source src="assets_arxiv/00000_prompt_01.mp4" type="video/mp4">
+                      <!-- 浏览器不支持时显示的文本 -->
+                      Your browser does not support the video tag. Chrome browser is recommended.
+                </video>
+                <p style="text-align: center;">The video shows <span class="red-text">a city street with a mix of vehicles</span>, including <span class="red-text">cars, and a truck</span> .The weather appears to be <span class="red-text">cloudy, and the lighting is dim. </span>
+                </p>
+                <video width="1152" height="144" autoplay loop muted playsinline>
+                  <source src="assets_arxiv/00000_prompt_03.mp4" type="video/mp4">
+                  Your browser does not support the video tag. Chrome browser is recommended.
+            </video>
+		  
+	    <p style="text-align: center;"> left：generated videos; middle: structured input; right: original videos;
+	    </p>
+		  
+          </div>
+        </div>
+      </div>
+    </section>
+	  	 <br><br>
+	  <br>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="./style/jquery-3.4.1.min.js.download"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./style/popper.min.js.download"></script>
+    <script src="./style/bootstrap-4.4.1.js.download"></script>
+    </body>
+</html>
